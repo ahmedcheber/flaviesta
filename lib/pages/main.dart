@@ -69,7 +69,7 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
               child: const Text(
-                'Next',
+                'Get started',
                 style: TextStyle(
                   fontSize: 18,
                   color: Color.fromARGB(255, 114, 88, 65),
