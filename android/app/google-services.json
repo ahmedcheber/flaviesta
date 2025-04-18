@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "862317854985",
+    "project_id": "flafiesta",
+    "storage_bucket": "flafiesta.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862317854985:android:bd0fc8d2682ee8685513d8",
+        "android_client_info": {
+          "package_name": "com.example.flaviesta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK_WyvF_y0jzmjSGMpQip2vZSasPuUWOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
