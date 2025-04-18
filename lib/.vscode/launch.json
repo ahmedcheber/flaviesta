@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Flutter: Launch Flaviesta",
+        "type": "dart",
+        "request": "launch",
+        "program": "lib/pages/main.dart"
+      }
+    ]
+  }
+  

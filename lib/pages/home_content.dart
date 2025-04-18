@@ -4,6 +4,10 @@ import 'package:flaviesta/pages/main.dart';
 import 'package:flutter/material.dart';
 import 'category_page.dart';
 import 'cake_details_page.dart';
+import 'customize_page.dart';
+import 'anniversarypage_page.dart';
+import 'basket_page.dart';
+
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
@@ -12,7 +16,7 @@ class HomeContent extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CategoryPage(category: category),
+        builder: (context) => categoryPage(category: category),
       ),
     );
   }
@@ -21,7 +25,13 @@ class HomeContent extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CakeDetailsPage(price: price, rating: rating),
+        builder:
+            (context) => CakeDetailsPage(
+              price: price,
+              rating: rating,
+              cakeName: null,
+              image: null,
+            ),
       ),
     );
   }

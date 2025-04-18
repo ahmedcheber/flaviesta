@@ -5,9 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flaviesta-master",
+            "name": "Flutter: Launch Flaviesta",
+            "type": "dart",
             "request": "launch",
-            "type": "dart"
+            "program": "lib/pages/main.dart"
         },
         {
             "name": "flaviesta-master (profile mode)",
@@ -21,5 +22,9 @@
             "type": "dart",
             "flutterMode": "release"
         }
-    ]
+   
+
+        
+    
+]
 }

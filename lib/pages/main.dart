@@ -619,7 +619,13 @@ class HomePage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CakeDetailsPage(price: price, rating: rating),
+        builder:
+            (context) => CakeDetailsPage(
+              price: price,
+              rating: rating,
+              cakeName: null,
+              image: null,
+            ),
       ),
     );
   }
@@ -838,7 +844,13 @@ class CategoryPage extends StatelessWidget {
 class CakeDetailsPage extends StatelessWidget {
   final String price;
   final double rating;
-  const CakeDetailsPage({super.key, required this.price, required this.rating});
+  const CakeDetailsPage({
+    super.key,
+    required this.price,
+    required this.rating,
+    required cakeName,
+    required image,
+  });
 
   @override
   Widget build(BuildContext context) {
