@@ -1,32 +1,30 @@
-// ignore_for_file: unused_import, use_key_in_widget_constructors
-import 'package:flaviesta/pages/main.dart';
 import 'package:flutter/material.dart';
-import 'cake_details_page.dart';
-class GlutenFreePage extends StatelessWidget {
-  final List<Map<String, dynamic>> glutenFreeCakes = [
+import 'cakedetailspage-screen.dart';
+ class WeddingPage extends StatelessWidget {
+  final List<Map<String, dynamic>> weddingCakes = [
     {
-      'name': 'Almond Delight',
-      'price': 34.99,
-      'image': 'assets/images/gluten1.jpg',
+      'name': 'Elegant Wedding Cake',
+      'price': 59.99,
+      'image': 'assets/images/wedding1.jpg',
+      'rating': 4.9,
+    },
+    {
+      'name': 'Royal Tier Cake',
+      'price': 74.50,
+      'image': 'assets/images/wedding2.jpg',
       'rating': 4.8,
     },
     {
-      'name': 'Coconut Heaven',
-      'price': 30.50,
-      'image': 'assets/images/gluten2.jpg',
-      'rating': 4.6,
+      'name': 'Golden Charm Cake',
+      'price': 89.00,
+      'image': 'assets/images/wedding3.jpg',
+      'rating': 5.0,
     },
     {
-      'name': 'Lemon Zest Cake',
-      'price': 27.25,
-      'image': 'assets/images/gluten3.jpg',
+      'name': 'Floral Bliss Cake',
+      'price': 67.25,
+      'image': 'assets/images/wedding4.jpg',
       'rating': 4.7,
-    },
-    {
-      'name': 'Hazelnut Dream',
-      'price': 29.90,
-      'image': 'assets/images/gluten4.jpg',
-      'rating': 4.9,
     },
   ];
 
@@ -36,7 +34,7 @@ class GlutenFreePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
         title: const Text(
-          'Gluten Free Cakes',
+          'Wedding Cakes',
           style: TextStyle(
             fontFamily: 'BridgetLily',
             fontSize: 24,
@@ -54,9 +52,9 @@ class GlutenFreePage extends StatelessWidget {
             mainAxisSpacing: 16,
             childAspectRatio: 0.75,
           ),
-          itemCount: glutenFreeCakes.length,
+          itemCount: weddingCakes.length,
           itemBuilder: (context, index) {
-            final cake = glutenFreeCakes[index];
+            final cake = weddingCakes[index];
             return GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -94,7 +92,7 @@ class GlutenFreePage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         cake['name'],
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                     Text(

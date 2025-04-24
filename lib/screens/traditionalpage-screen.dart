@@ -1,34 +1,30 @@
-
-// ignore_for_file: unused_import, use_key_in_widget_constructors, file_names
-
-import 'package:flaviesta/pages/main.dart';
 import 'package:flutter/material.dart';
-import 'cake_details_page.dart';
- class WeddingPage extends StatelessWidget {
-  final List<Map<String, dynamic>> weddingCakes = [
+import 'cakedetailspage-screen.dart';
+class TraditionalPage extends StatelessWidget {
+  final List<Map<String, dynamic>> traditionalCakes = [
     {
-      'name': 'Elegant Wedding Cake',
-      'price': 59.99,
-      'image': 'assets/images/wedding1.jpg',
-      'rating': 4.9,
+      'name': 'Classic Fruit Cake',
+      'price': 29.99,
+      'image': 'assets/images/traditional1.jpg',
+      'rating': 4.6,
     },
     {
-      'name': 'Royal Tier Cake',
-      'price': 74.50,
-      'image': 'assets/images/wedding2.jpg',
+      'name': 'Sponge Delight',
+      'price': 24.50,
+      'image': 'assets/images/traditional2.jpg',
+      'rating': 4.7,
+    },
+    {
+      'name': 'Buttercream Cake',
+      'price': 32.00,
+      'image': 'assets/images/traditional3.jpg',
       'rating': 4.8,
     },
     {
-      'name': 'Golden Charm Cake',
-      'price': 89.00,
-      'image': 'assets/images/wedding3.jpg',
-      'rating': 5.0,
-    },
-    {
-      'name': 'Floral Bliss Cake',
-      'price': 67.25,
-      'image': 'assets/images/wedding4.jpg',
-      'rating': 4.7,
+      'name': 'Honey Almond Cake',
+      'price': 27.25,
+      'image': 'assets/images/traditional4.jpg',
+      'rating': 4.9,
     },
   ];
 
@@ -38,7 +34,7 @@ import 'cake_details_page.dart';
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
         title: const Text(
-          'Wedding Cakes',
+          'Traditional Cakes',
           style: TextStyle(
             fontFamily: 'BridgetLily',
             fontSize: 24,
@@ -56,9 +52,9 @@ import 'cake_details_page.dart';
             mainAxisSpacing: 16,
             childAspectRatio: 0.75,
           ),
-          itemCount: weddingCakes.length,
+          itemCount: traditionalCakes.length,
           itemBuilder: (context, index) {
-            final cake = weddingCakes[index];
+            final cake = traditionalCakes[index];
             return GestureDetector(
               onTap: () {
                 Navigator.push(

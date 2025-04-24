@@ -1,9 +1,5 @@
-
-// ignore_for_file: unused_import, use_key_in_widget_constructors
-import 'package:flaviesta/pages/main.dart'; 
 import 'package:flutter/material.dart';
-import 'cake_details_page.dart';
-
+import 'cakedetailspage-screen.dart';
 class AnniversaryPage extends StatelessWidget {
   final List<Map<String, dynamic>> anniversaryCakes = [
     {
