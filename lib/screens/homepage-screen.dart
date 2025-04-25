@@ -169,7 +169,7 @@ class HomePage extends StatelessWidget {
                       context,
                       cakeNames[index],
                       cakeImages[index],
-                      '1500 DA',
+                      '25',
                       4.5,
                     ),
                     child: Card(
@@ -207,7 +207,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 const Text(
-                                  '1500 DA',
+                                  '15',
                                   style: TextStyle(
                                     color: Color.fromARGB(255, 160, 138, 108),
                                   ),

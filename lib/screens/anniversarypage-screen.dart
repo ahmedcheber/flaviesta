@@ -28,6 +28,8 @@ class AnniversaryPage extends StatelessWidget {
     },
   ];
 
+  AnniversaryPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
