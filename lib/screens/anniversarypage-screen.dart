@@ -5,25 +5,25 @@ class AnniversaryPage extends StatelessWidget {
     {
       'name': 'Chocolate Celebration',
       'price': 39.99,
-      'image': 'assets/images/anniv1.jpg',
+      'image': 'images/anniv1.jpg',
       'rating': 4.8,
     },
     {
       'name': 'Vanilla Bliss',
       'price': 34.50,
-      'image': 'assets/images/anniv2.jpg',
+      'image': 'images/anniv2.jpg',
       'rating': 4.7,
     },
     {
       'name': 'Red Velvet Charm',
       'price': 42.00,
-      'image': 'assets/images/anniv3.jpg',
+      'image': 'images/anniv3.jpg',
       'rating': 4.9,
     },
     {
       'name': 'Strawberry Dream',
       'price': 38.25,
-      'image': 'assets/images/anniv4.jpg',
+      'image': 'images/anniv4.jpg',
       'rating': 5.0,
     },
   ];

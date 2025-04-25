@@ -5,25 +5,25 @@ import 'cakedetailspage-screen.dart';
     {
       'name': 'Elegant Wedding Cake',
       'price': 59.99,
-      'image': 'assets/images/wedding1.jpg',
+      'image': 'images/wedding1.jpg',
       'rating': 4.9,
     },
     {
       'name': 'Royal Tier Cake',
       'price': 74.50,
-      'image': 'assets/images/wedding2.jpg',
+      'image': 'images/wedding2.jpg',
       'rating': 4.8,
     },
     {
       'name': 'Golden Charm Cake',
       'price': 89.00,
-      'image': 'assets/images/wedding3.jpg',
+      'image': 'images/wedding3.jpg',
       'rating': 5.0,
     },
     {
       'name': 'Floral Bliss Cake',
       'price': 67.25,
-      'image': 'assets/images/wedding4.jpg',
+      'image': 'images/wedding4.jpg',
       'rating': 4.7,
     },
   ];

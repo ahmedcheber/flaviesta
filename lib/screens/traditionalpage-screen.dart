@@ -5,25 +5,25 @@ class TraditionalPage extends StatelessWidget {
     {
       'name': 'Classic Fruit Cake',
       'price': 29.99,
-      'image': 'assets/images/traditional1.jpg',
+      'image': 'images/traditional1.jpg',
       'rating': 4.6,
     },
     {
       'name': 'Sponge Delight',
       'price': 24.50,
-      'image': 'assets/images/traditional2.jpg',
+      'image': 'images/traditional2.jpg',
       'rating': 4.7,
     },
     {
       'name': 'Buttercream Cake',
       'price': 32.00,
-      'image': 'assets/images/traditional3.jpg',
+      'image': 'images/traditional3.jpg',
       'rating': 4.8,
     },
     {
       'name': 'Honey Almond Cake',
       'price': 27.25,
-      'image': 'assets/images/traditional4.jpg',
+      'image': 'images/traditional4.jpg',
       'rating': 4.9,
     },
   ];
