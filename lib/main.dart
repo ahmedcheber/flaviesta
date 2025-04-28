@@ -50,6 +50,7 @@ class SplashScreen extends StatelessWidget {
             const Text(
               'Discover the magic of freshly baked !',
               style: TextStyle(
+                fontFamily: 'BridgetLily',
                 fontSize: 20,
                 color: Color.fromARGB(255, 160, 138, 108),
               ),
@@ -75,7 +76,7 @@ class SplashScreen extends StatelessWidget {
                   fontSize: 18,
                   color: Color.fromARGB(255, 114, 88, 65),
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'BridgetLily',
+                  
                 ),
               ),
             ),
@@ -122,7 +123,7 @@ class AuthScreen extends StatelessWidget {
                   fontSize: 16,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'BridgetLily', 
+                  
                 ),
               ),
             ),
@@ -148,7 +149,7 @@ class AuthScreen extends StatelessWidget {
                   fontSize: 16,
                   color: Color.fromARGB(255, 160, 138, 108),
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'BridgetLily',
+                  
                 ),
               ),
             ),
@@ -290,7 +291,7 @@ class _LoginPageDemoState extends State<LoginPageDemo> {
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 114, 88, 65),
-                      fontFamily: 'BridgetLily',
+                      
                     ),
                   ),
                 ),
@@ -546,7 +547,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 114, 88, 65),
-                      fontFamily: 'BridgetLily',
                     ),
                   ),
                 ),

@@ -5,8 +5,17 @@ import 'traditionalpage-screen.dart';
 import 'glutenfreepage-screen.dart';
 import 'cakedetailspage-screen.dart';
 import 'categorypage-screen.dart';
-class HomePage extends StatelessWidget {
+import 'customize_cake_screen.dart';  // Importez votre page CustomizeCakeScreen
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
 
   void _onCategoryTap(BuildContext context, String category) {
     if (category == 'Anniversary') {
@@ -32,7 +41,7 @@ class HomePage extends StatelessWidget {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) =>  CategoryPage(category: category)),
+        MaterialPageRoute(builder: (context) => CategoryPage(category: category)),
       );
     }
   }
@@ -54,6 +63,14 @@ class HomePage extends StatelessWidget {
           rating: rating,
         ),
       ),
+    );
+  }
+
+  // Fonction pour naviguer vers la page CustomizeCakeScreen
+  void _onCustomizeTap() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CustomizeCakeScreen()),  // Page vers laquelle vous voulez naviguer
     );
   }
 
@@ -169,7 +186,7 @@ class HomePage extends StatelessWidget {
                       context,
                       cakeNames[index],
                       cakeImages[index],
-                      '25',
+                      '15',
                       4.5,
                     ),
                     child: Card(
@@ -238,6 +255,16 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+            // Navigate to the appropriate page based on the index
+            if (index == 1) {
+              _onCustomizeTap();  // Navigate to CustomizeCakeScreen
+            }
+          });
+        },
         backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
         selectedItemColor: const Color.fromARGB(255, 114, 88, 65),
         unselectedItemColor: const Color.fromARGB(255, 160, 138, 108),

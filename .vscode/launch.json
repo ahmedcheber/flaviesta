@@ -8,7 +8,7 @@
             "name": "Flutter: Launch Flaviesta",
             "type": "dart",
             "request": "launch",
-            "program": "lib/pages/main.dart"
+            "program": "lib/main.dart"
         },
         {
             "name": "flaviesta-master (profile mode)",
