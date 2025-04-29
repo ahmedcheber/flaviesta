@@ -111,7 +111,7 @@ class AuthScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 160, 138, 108),
+                backgroundColor: const Color(0xFFA08A6C),
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
@@ -603,4 +603,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-
