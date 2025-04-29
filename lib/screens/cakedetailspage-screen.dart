@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'cart-item.dart';
+
 class CakeDetailsPage extends StatefulWidget {
   final String cakeName;
   final String image;

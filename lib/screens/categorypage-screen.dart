@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cart-item.dart';
+
 class CategoryPage extends StatelessWidget {
   final String category;
   const CategoryPage({super.key, required this.category});
