@@ -5,25 +5,25 @@ class TraditionalPage extends StatelessWidget {
     {
       'name': 'Classic Fruit Cake',
       'price': 29.99,
-      'image': 'images/traditional1.jpg',
+      'image': 'images/cupcake1.jpg',
       'rating': 4.6,
     },
     {
       'name': 'Sponge Delight',
       'price': 24.50,
-      'image': 'images/traditional2.jpg',
+      'image': 'images/cupcake2.jpg',
       'rating': 4.7,
     },
     {
       'name': 'Buttercream Cake',
       'price': 32.00,
-      'image': 'images/traditional3.jpg',
+      'image': 'images/cupcake3.jpg',
       'rating': 4.8,
     },
     {
       'name': 'Honey Almond Cake',
       'price': 27.25,
-      'image': 'images/traditional4.jpg',
+      'image': 'images/cupcake4.jpg',
       'rating': 4.9,
     },
   ];
@@ -36,7 +36,7 @@ class TraditionalPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
         title: const Text(
-          'Traditional Cakes',
+          'Cupcakes',
           style: TextStyle(
             fontFamily: 'BridgetLily',
             fontSize: 24,

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'anniversarypage-screen.dart';
 import 'weddingpage-screen.dart';
-import 'traditionalpage-screen.dart';
+import 'cupcakespage-screen.dart';
 import 'glutenfreepage-screen.dart';
 import 'cakedetailspage-screen.dart';
 import 'categorypage-screen.dart';
 import 'profilepage-screen.dart';
 import 'basketpage-screen.dart'; // Import BasketPage
-import 'cart-item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,7 +32,7 @@ class _HomePageState extends State<HomePage> {
         context,
         MaterialPageRoute(builder: (context) => WeddingPage()),
       );
-    } else if (category == 'Traditional') {
+    } else if (category == 'Cupcakes') {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => TraditionalPage()),
@@ -131,9 +130,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final List<String> cakeImages = [
-      'images/cake0.png',
-      'images/cake1.png',
-      'images/cake2.png',
+      'images/cake0.jpg',
+      'images/cake1.jpg',
+      'images/cake2.jpg',
       'images/cake3.png',
     ];
 
@@ -191,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   _buildCategoryChip(context, 'Anniversary'),
                   _buildCategoryChip(context, 'Wedding'),
-                  _buildCategoryChip(context, 'Traditional'),
+                  _buildCategoryChip(context, 'Cupcakes'),
                   _buildCategoryChip(context, 'Gluten-Free'),
                 ],
               ),
