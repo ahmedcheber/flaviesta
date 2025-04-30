@@ -50,7 +50,6 @@ class SplashScreen extends StatelessWidget {
             const Text(
               'Discover the magic of freshly baked !',
               style: TextStyle(
-                fontFamily: 'BridgetLily',
                 fontSize: 20,
                 color: Color.fromARGB(255, 160, 138, 108),
               ),
@@ -73,6 +72,7 @@ class SplashScreen extends StatelessWidget {
               child: const Text(
                 'Get started',
                 style: TextStyle(
+                  fontFamily: 'BridgetLily',
                   fontSize: 18,
                   color: Color.fromARGB(255, 114, 88, 65),
                   fontWeight: FontWeight.bold,
@@ -120,6 +120,7 @@ class AuthScreen extends StatelessWidget {
               child: const Text(
                 'Sign In',
                 style: TextStyle(
+                  fontFamily: 'BridgetLily',
                   fontSize: 16,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -146,6 +147,7 @@ class AuthScreen extends StatelessWidget {
               child: const Text(
                 'Sign Up',
                 style: TextStyle(
+                  fontFamily: 'BridgetLily',
                   fontSize: 16,
                   color: Color.fromARGB(255, 160, 138, 108),
                   fontWeight: FontWeight.bold,
@@ -288,6 +290,7 @@ class _LoginPageDemoState extends State<LoginPageDemo> {
                   child: const Text(
                     'Sign in',
                     style: TextStyle(
+                      fontFamily: 'BridgetLily',
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 114, 88, 65),
@@ -544,6 +547,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: const Text(
                     'Sign Up',
                     style: TextStyle(
+                      fontFamily: 'BridgetLily',
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 114, 88, 65),

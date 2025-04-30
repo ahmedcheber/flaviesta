@@ -131,8 +131,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final List<String> cakeImages = [
       'images/cake0.jpg',
-      'images/cake1.jpg',
-      'images/cake2.jpg',
+      'images/aniv2.jpg',
+      'images/aniv4.jpg',
       'images/cake3.png',
     ];
 
