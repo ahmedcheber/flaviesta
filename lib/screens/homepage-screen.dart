@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
       'images/cake0.jpg',
       'images/aniv2.jpg',
       'images/aniv4.jpg',
-      'images/cake3.png',
+      'images/cake3.jpg',
     ];
 
     final List<String> cakeNames = [
