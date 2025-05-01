@@ -130,10 +130,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final List<String> cakeImages = [
+<<<<<<< HEAD
       'images/cake0.png',
       'images/cake1.png',
       'images/cake2.png',
       'images/cake3.png',
+=======
+      'images/cake0.jpg',
+      'images/aniv2.jpg',
+      'images/aniv4.jpg',
+      'images/cake3.jpg',
+>>>>>>> 5e278c920ae2eb922f3c91a21e012ede1a33190d
     ];
 
     final List<String> cakeNames = [
