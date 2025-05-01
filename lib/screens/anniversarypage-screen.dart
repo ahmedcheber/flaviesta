@@ -5,7 +5,7 @@ class AnniversaryPage extends StatelessWidget {
     {
       'name': 'Chocolate Celebration',
       'price': 39.99,
-      'image': 'images/aniv1.jng',
+      'image': 'images/aniv1.jpg',
       'rating': 4.8,
     },
     {
