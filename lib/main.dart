@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'screens/homepage-screen.dart';
 
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -50,7 +52,8 @@ class SplashScreen extends StatelessWidget {
             const Text(
               'Discover the magic of freshly baked !',
               style: TextStyle(
-                fontSize: 20,
+                fontFamily: 'BridgetLily',
+                fontSize: 22,
                 color: Color.fromARGB(255, 160, 138, 108),
               ),
             ),
@@ -96,71 +99,72 @@ class AuthScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
       body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            Center(
-              child: Image.asset('images/logo.png', width: 300),
-            ),
-            const SizedBox(height: 60),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPageDemo()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFA08A6C),
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, // Centrer verticalement
+            children: [
+              Center(
+                child: Image.asset('images/logo.png', width: 300),
+              ),
+              const SizedBox(height: 40),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPageDemo()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFA08A6C),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+                child: const Text(
+                  'Sign In',
+                  style: TextStyle(
+                    fontFamily: 'BridgetLily',
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              child: const Text(
-                'Sign In',
-                style: TextStyle(
-                  fontFamily: 'BridgetLily',
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  
+              const SizedBox(height: 15),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpScreen()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 247, 232, 189),
+                  side: const BorderSide(color: Color.fromARGB(255, 160, 138, 108), width: 1.5),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontFamily: 'BridgetLily',
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 160, 138, 108),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 15),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignUpScreen()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 247, 232, 189),
-                side: const BorderSide(color: Color.fromARGB(255, 160, 138, 108), width: 1.5),
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
-              child: const Text(
-                'Sign Up',
-                style: TextStyle(
-                  fontFamily: 'BridgetLily',
-                  fontSize: 16,
-                  color: Color.fromARGB(255, 160, 138, 108),
-                  fontWeight: FontWeight.bold,
-                  
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
 
 // ---------------- LoginPageDemo ----------------
 
