@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'anniversarypage-screen.dart';
 import 'weddingpage-screen.dart';
 import 'cupcakespage-screen.dart';
@@ -17,6 +17,25 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  List<Cake> _cakes = CakeData.getCakes();
+  List<Cake> _filteredCakes = [];
+  TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredCakes = _cakes; // Initially display all cakes
+    _searchController.addListener(_filterCakes);
+  }
+
+  void _filterCakes() {
+    String query = _searchController.text.toLowerCase();
+    setState(() {
+      _filteredCakes = _cakes.where((cake) {
+        return cake.name.toLowerCase().contains(query);
+      }).toList();
+    });
+  }
 
   void _onCategoryTap(BuildContext context, String category) {
     if (category == 'Anniversary') {
@@ -88,36 +107,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> cakeImages = [
-      'images/cake0.png',
-      'images/cake1.png',
-      'images/cake2.png',
-      'images/cake3.png',
-    ];
-
-    final List<String> cakeNames = [
-      'Duo Délice',
-      'Cake & Crumbs',
-      'Mini & Me',
-      'Sweetheart Pack',
-    ];
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-  backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
-  automaticallyImplyLeading: false, // <- This removes the back button
-  title: const Text(
-    'Find and Get Your Best Cake',
-    style: TextStyle(
-      fontFamily: 'BridgetLily',
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      color: Color.fromARGB(255, 114, 88, 65),
-    ),
-  ),
-),
-
+        backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
+        automaticallyImplyLeading: false, // <- This removes the back button
+        title: const Text(
+          'Find and Get Your Best Cake',
+          style: TextStyle(
+            fontFamily: 'BridgetLily',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 114, 88, 65),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -125,6 +129,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
+                controller: _searchController,
                 decoration: InputDecoration(
                   hintText: 'Search for cakes...',
                   prefixIcon: const Icon(Icons.search),
@@ -174,15 +179,16 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSpacing: 16,
                   childAspectRatio: 0.75,
                 ),
-                itemCount: cakeImages.length,
+                itemCount: _filteredCakes.length,
                 itemBuilder: (context, index) {
+                  Cake cake = _filteredCakes[index];
                   return GestureDetector(
                     onTap: () => _onCakeTap(
                       context,
-                      cakeNames[index],
-                      cakeImages[index],
-                      '\$50.99',
-                      4.5,
+                      cake.name,
+                      cake.image,
+                      cake.price,
+                      cake.rating,
                     ),
                     child: Card(
                       elevation: 4,
@@ -198,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                                 top: Radius.circular(16),
                               ),
                               child: Image.asset(
-                                cakeImages[index],
+                                cake.image,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -210,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  cakeNames[index],
+                                  cake.name,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
@@ -218,9 +224,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 const SizedBox(height: 4),
-                                const Text(
-                                  '\$50.99',
-                                  style: TextStyle(
+                                Text(
+                                  cake.price,
+                                  style: const TextStyle(
                                     color: Color.fromARGB(255, 160, 138, 108),
                                   ),
                                 ),
@@ -228,7 +234,7 @@ class _HomePageState extends State<HomePage> {
                                 Row(
                                   children: List.generate(5, (i) {
                                     return Icon(
-                                      i < 4.5.round()
+                                      i < cake.rating.round()
                                           ? Icons.star
                                           : Icons.star_border,
                                       color: Colors.amber,
@@ -290,5 +296,30 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+}
+
+class Cake {
+  final String name;
+  final String image;
+  final String price;
+  final double rating;
+
+  Cake({
+    required this.name,
+    required this.image,
+    required this.price,
+    required this.rating,
+  });
+}
+
+class CakeData {
+  static List<Cake> getCakes() {
+    return [
+      Cake(name: 'Duo Délice', image: 'images/cake0.png', price: '\$50.99', rating: 4.5),
+      Cake(name: 'Cake & Crumbs', image: 'images/cake1.png', price: '\$40.00', rating: 4.0),
+      Cake(name: 'Mini & Me', image: 'images/cake2.png', price: '\$60.00', rating: 5.0),
+      Cake(name: 'Sweetheart Pack', image: 'images/cake3.png', price: '\$70.99', rating: 4.8),
+    ];
   }
 }

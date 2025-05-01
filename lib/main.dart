@@ -304,16 +304,6 @@ class _LoginPageDemoState extends State<LoginPageDemo> {
                 ),
                 const SizedBox(height: 15),
                 TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Forgot your password?',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromARGB(255, 160, 138, 108),
-                    ),
-                  ),
-                ),
-                TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,

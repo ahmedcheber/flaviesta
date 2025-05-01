@@ -11,9 +11,11 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final Color primaryColor = const Color(0xFFFBDDD2);
-  final Color backgroundColor = const Color(0xFFFDF6F6);
-  final Color cardColor = Colors.white;
+  final Color primaryColor = const Color.fromRGBO(251, 221, 210, 1);  // For the AppBar background color
+  final Color backgroundColor = Color.fromRGBO(255, 255, 255, 1);  // Background color
+  final Color frameColor = Color.fromARGB(255, 1, 0, 0); // Frame color
+  final Color titleColor = Color(0xFFA08A6C); // Used in AppBar and for font
+
   String name = '';
   String phone = '';
   String address = '';
@@ -45,13 +47,13 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'My Profile',
           style: TextStyle(
             fontFamily: 'BridgetLily',
             fontSize: 26,
             fontWeight: FontWeight.bold,
-            color: Color(0xFFA08A6C),
+            color: titleColor,
           ),
         ),
         backgroundColor: primaryColor,
@@ -62,10 +64,11 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           children: [
             const SizedBox(height: 24),
-            _buildInfoCard(Icons.person, 'Name', name),
-            _buildInfoCard(Icons.email, 'Email', email),
-            _buildInfoCard(Icons.phone, 'Phone', phone),
-            _buildInfoCard(Icons.location_on, 'Address', address),
+            const SizedBox(height: 24),
+            _buildInfoText('Name', name),
+            _buildInfoText('Email', email),
+            _buildInfoText('Phone', phone),
+            _buildInfoText('Address', address),
             const SizedBox(height: 32),
             _buildLogoutButton(context),
           ],
@@ -74,64 +77,77 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildInfoCard(IconData icon, String title, String value) {
-    return Card(
-      color: cardColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      elevation: 3,
-      child: ListTile(
-        leading: Icon(icon, color: primaryColor),
-        title: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.black87,
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
-          ),
+  Widget _buildInfoText(String title, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Container(
+        decoration: BoxDecoration(
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 6,
+              offset: Offset(0, 3),
+            ),
+          ],
         ),
-        subtitle: Text(
-          value,
-          style: TextStyle(
-            color: Colors.grey.shade700,
-            fontSize: 14,
-          ),
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '$title: ',
+              style: TextStyle(
+                color: frameColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+            Expanded(
+              child: Text(
+                value,
+                style: TextStyle(
+                  color: titleColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ],
         ),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-        onTap: () {
-          // Future: Edit feature
-        },
       ),
     );
   }
 
-   
-
-Widget _buildLogoutButton(BuildContext context) {
-  return ElevatedButton.icon(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: primaryColor,
-      foregroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
+  Widget _buildLogoutButton(BuildContext context) {
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: primaryColor, 
+        foregroundColor: titleColor, // Text color same as AppBar text
+        elevation: 6, // More shadow
+        shadowColor: Colors.black45,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-    ),
-    icon: const Icon(Icons.logout),
-    label: const Text(
-      'Logout',
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
+      icon: const Icon(Icons.logout),
+      label: Text(
+        'Logout',
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: frameColor, // Text color matches AppBar
+        ),
       ),
-    ),
-    onPressed: () async {
-      await FirebaseAuth.instance.signOut();
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const SplashScreen()),
-        (Route<dynamic> route) => false,
-      );
-    },
-  );
-}
+      onPressed: () async {
+        await FirebaseAuth.instance.signOut();
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const SplashScreen()),
+          (Route<dynamic> route) => false,
+        );
+      },
+    );
+  }
 }

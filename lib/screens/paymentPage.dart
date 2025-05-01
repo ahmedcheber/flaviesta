@@ -17,6 +17,7 @@ class _PaymentPageState extends State<PaymentPage> {
   final _cardNumberController = TextEditingController();
   final _expiryDateController = TextEditingController();
   final _cvvController = TextEditingController();
+  final _deliveryDateController = TextEditingController(); // New controller
 
   final user = FirebaseAuth.instance.currentUser;
 
@@ -30,14 +31,14 @@ class _PaymentPageState extends State<PaymentPage> {
           'totalPrice': widget.itemData['totalPrice'],
           'orderTime': Timestamp.now(),
           'status': 'Processing',
+          'deliveryDate': _deliveryDateController.text.trim(), // Add delivery date
           'paymentInfo': {
-            'cardNumber': _cardNumberController.text,
-            'expiry': _expiryDateController.text,
-            'cvv': _cvvController.text,
+            'cardNumber': _cardNumberController.text.trim(),
+            'expiry': _expiryDateController.text.trim(),
+            'cvv': _cvvController.text.trim(),
           },
         };
 
-        // Save the order to Firestore
         await FirebaseFirestore.instance
             .collection('users')
             .doc(user!.uid)
@@ -48,13 +49,11 @@ class _PaymentPageState extends State<PaymentPage> {
           const SnackBar(content: Text('Order confirmed!')),
         );
 
-        // Navigate to HomePage after successful payment
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
-          (route) => false,  // Removes all previous routes
+          (route) => false,
         );
-
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error placing order: $e')),
@@ -156,14 +155,32 @@ class _PaymentPageState extends State<PaymentPage> {
                   return null;
                 },
               ),
+              const SizedBox(height: 12),
+              TextFormField(
+                controller: _deliveryDateController,
+                decoration: const InputDecoration(
+                  labelText: 'Delivery Date (dd/mm/yy)',
+                  prefixIcon: Icon(Icons.delivery_dining),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+                keyboardType: TextInputType.datetime,
+                validator: (value) {
+                  if (value == null || !RegExp(r'^\d{2}/\d{2}/\d{2}$').hasMatch(value)) {
+                    return 'Enter date in dd/mm/yy format.';
+                  }
+                  return null;
+                },
+              ),
               const SizedBox(height: 24),
               ElevatedButton.icon(
                 onPressed: submitPayment,
                 icon: const Icon(Icons.payment),
                 label: const Text('Submit Payment'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(251, 221, 210, 1),
-                  foregroundColor: Color.fromARGB(255, 160, 138, 108),
+                  backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
+                  foregroundColor: const Color.fromARGB(255, 160, 138, 108),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   textStyle: const TextStyle(fontSize: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
