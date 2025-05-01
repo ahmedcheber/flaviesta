@@ -5,21 +5,13 @@ class GlutenFreePage extends StatelessWidget {
     {
       'name': 'Almond Delight',
       'price': 34.99,
-<<<<<<< HEAD
       'image': 'images/glutenn1.png',
-=======
-      'image': 'images/gluten1.jpg',
->>>>>>> 5e278c920ae2eb922f3c91a21e012ede1a33190d
       'rating': 4.8,
     },
     {
       'name': 'Coconut Heaven',
       'price': 30.50,
-<<<<<<< HEAD
-      'image': 'images/glutenn2.png',
-=======
       'image': 'images/gluten2.png',
->>>>>>> 5e278c920ae2eb922f3c91a21e012ede1a33190d
       'rating': 4.6,
     },
     {

@@ -11,31 +11,19 @@ class AnniversaryPage extends StatelessWidget {
     {
       'name': 'Strawberry Bliss',
       'price': 34.50,
-<<<<<<< HEAD
       'image': 'images/anniv2.png',
-=======
-      'image': 'images/aniv2.jpg',
->>>>>>> 5e278c920ae2eb922f3c91a21e012ede1a33190d
       'rating': 4.7,
     },
     {
       'name': 'Rose Petal Cake',
       'price': 42.00,
-<<<<<<< HEAD
       'image': 'images/anniv3.png',
-=======
-      'image': 'images/aniv3.jpg',
->>>>>>> 5e278c920ae2eb922f3c91a21e012ede1a33190d
       'rating': 4.9,
     },
     {
       'name': 'Vanilla Dream',
       'price': 38.25,
-<<<<<<< HEAD
       'image': 'images/anniv4.png',
-=======
-      'image': 'images/aniv4.jpg',
->>>>>>> 5e278c920ae2eb922f3c91a21e012ede1a33190d
       'rating': 5.0,
     },
   ];

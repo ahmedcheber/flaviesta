@@ -5,8 +5,7 @@ import 'cupcakespage-screen.dart';
 import 'glutenfreepage-screen.dart';
 import 'cakedetailspage-screen.dart';
 import 'categorypage-screen.dart';
-import 'profilepage-screen.dart';
-import 'basketpage-screen.dart'; // Import BasketPage
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,9 +16,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-
-  final Color primaryColor = Color(0xFFFBDDD2); // Light peach
-  final Color textColor = Color(0xFF725841); // Brown text
 
   void _onCategoryTap(BuildContext context, String category) {
     if (category == 'Anniversary') {
@@ -32,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         context,
         MaterialPageRoute(builder: (context) => WeddingPage()),
       );
-    } else if (category == 'Cupcakes') {
+    } else if (category == 'Traditional') {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => TraditionalPage()),
@@ -45,9 +41,7 @@ class _HomePageState extends State<HomePage> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(
-          builder: (context) => CategoryPage(category: category),
-        ),
+        MaterialPageRoute(builder: (context) => CategoryPage(category: category)),
       );
     }
   }
@@ -72,53 +66,20 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _onItemTapped(int index) {
-    if (index == 1) {
-      // Navigate to Basket Page
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => BasketPage()),
-      );
-    } else if (index == 2) {
-      // Navigate to Profile Page
-      Navigator.push(
-        context,
-        PageRouteBuilder(
-          pageBuilder:
-              (context, animation, secondaryAnimation) => ProfilePage(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            const begin = Offset(1.0, 0.0);
-            const end = Offset.zero;
-            const curve = Curves.ease;
-            final tween = Tween(
-              begin: begin,
-              end: end,
-            ).chain(CurveTween(curve: curve));
-            return SlideTransition(
-              position: animation.drive(tween),
-              child: child,
-            );
-          },
-        ),
-      );
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-  }
+  // Fonction pour naviguer vers la page CustomizeCakeScreen
+ 
 
   Widget _buildCategoryChip(BuildContext context, String category) {
     return GestureDetector(
       onTap: () => _onCategoryTap(context, category),
       child: Chip(
         label: Text(category),
-        backgroundColor: primaryColor,
+        backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
-          color: textColor,
+          color: Color.fromARGB(255, 114, 88, 65),
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
@@ -130,17 +91,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final List<String> cakeImages = [
-<<<<<<< HEAD
       'images/cake0.png',
       'images/cake1.png',
       'images/cake2.png',
       'images/cake3.png',
-=======
-      'images/cake0.jpg',
-      'images/aniv2.jpg',
-      'images/aniv4.jpg',
-      'images/cake3.jpg',
->>>>>>> 5e278c920ae2eb922f3c91a21e012ede1a33190d
     ];
 
     final List<String> cakeNames = [
@@ -153,14 +107,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
         title: const Text(
           'Find and Get Your Best Cake',
           style: TextStyle(
             fontFamily: 'BridgetLily',
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF725841),
+            color: Color.fromARGB(255, 114, 88, 65),
           ),
         ),
       ),
@@ -179,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                     borderSide: BorderSide.none,
                   ),
                   filled: true,
-                  fillColor: primaryColor,
+                  fillColor: const Color.fromRGBO(251, 221, 210, 1),
                 ),
               ),
               const SizedBox(height: 20),
@@ -188,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF725841),
+                  color: Color.fromARGB(255, 114, 88, 65),
                 ),
               ),
               const SizedBox(height: 10),
@@ -197,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   _buildCategoryChip(context, 'Anniversary'),
                   _buildCategoryChip(context, 'Wedding'),
-                  _buildCategoryChip(context, 'Cupcakes'),
+                  _buildCategoryChip(context, 'Traditional'),
                   _buildCategoryChip(context, 'Gluten-Free'),
                 ],
               ),
@@ -207,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF725841),
+                  color: Color.fromARGB(255, 114, 88, 65),
                 ),
               ),
               const SizedBox(height: 10),
@@ -251,9 +205,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                              vertical: 8,
-                              horizontal: 8,
-                            ),
+                                vertical: 8, horizontal: 8),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -262,14 +214,14 @@ class _HomePageState extends State<HomePage> {
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
-                                    color: Color(0xFF725841),
+                                    color: Color.fromARGB(255, 114, 88, 65),
                                   ),
                                 ),
                                 const SizedBox(height: 4),
                                 const Text(
                                    '\$50.99',
                                   style: TextStyle(
-                                    color: Color(0xFFA08A6C),
+                                    color: Color.fromARGB(255, 160, 138, 108),
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -299,15 +251,24 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        backgroundColor: primaryColor,
-        selectedItemColor: textColor,
-        unselectedItemColor: const Color(0xFFA08A6C),
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+            // Navigate to the appropriate page based on the index
+          });
+        },
+        backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
+        selectedItemColor: const Color.fromARGB(255, 114, 88, 65),
+        unselectedItemColor: const Color.fromARGB(255, 160, 138, 108),
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.cake),
+            label: 'Customize',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_basket),
