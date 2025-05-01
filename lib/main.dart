@@ -136,7 +136,7 @@ class AuthScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
+                backgroundColor: Color.fromARGB(255, 247, 232, 189),
                 side: const BorderSide(color: Color.fromARGB(255, 160, 138, 108), width: 1.5),
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                 shape: RoundedRectangleBorder(

@@ -3,7 +3,7 @@ import 'cakedetailspage-screen.dart';
 class TraditionalPage extends StatelessWidget {
   final List<Map<String, dynamic>> traditionalCakes = [
     {
-      'name': 'Classic Fruit Cake',
+      'name': 'Cotton Candy Cloud',
       'price': 29.99,
       'image': 'images/cupcake1.jpg',
       'rating': 4.6,
@@ -15,13 +15,13 @@ class TraditionalPage extends StatelessWidget {
       'rating': 4.7,
     },
     {
-      'name': 'Buttercream Cake',
+      'name': 'Chocolate Bliss',
       'price': 32.00,
       'image': 'images/cupcake3.jpg',
       'rating': 4.8,
     },
     {
-      'name': 'Honey Almond Cake',
+      'name': 'Vanilla Dream',
       'price': 27.25,
       'image': 'images/cupcake4.jpg',
       'rating': 4.9,

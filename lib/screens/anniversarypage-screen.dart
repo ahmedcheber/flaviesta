@@ -3,27 +3,27 @@ import 'cakedetailspage-screen.dart';
 class AnniversaryPage extends StatelessWidget {
   final List<Map<String, dynamic>> anniversaryCakes = [
     {
-      'name': 'Chocolate Celebration',
+      'name': 'Birthday Bite',
       'price': 39.99,
       'image': 'images/anniv1.png',
       'rating': 4.8,
     },
     {
-      'name': 'Vanilla Bliss',
+      'name': 'Strawberry Bliss',
       'price': 34.50,
-      'image': 'images/anniv2.jpg',
+      'image': 'images/anniv2.png',
       'rating': 4.7,
     },
     {
-      'name': 'Red Velvet Charm',
+      'name': 'Rose Petal Cake',
       'price': 42.00,
-      'image': 'images/anniv3.jpg',
+      'image': 'images/anniv3.png',
       'rating': 4.9,
     },
     {
-      'name': 'Strawberry Dream',
+      'name': 'Vanilla Dream',
       'price': 38.25,
-      'image': 'images/anniv4.jpg',
+      'image': 'images/anniv4.png',
       'rating': 5.0,
     },
   ];

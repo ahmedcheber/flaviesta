@@ -130,17 +130,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final List<String> cakeImages = [
-      'images/cake0.jpg',
-      'images/cake1.jpg',
-      'images/cake2.jpg',
+      'images/cake0.png',
+      'images/cake1.png',
+      'images/cake2.png',
       'images/cake3.png',
     ];
 
     final List<String> cakeNames = [
-      'Choco Delight',
-      'Vanilla Bliss',
-      'Strawberry Dream',
-      'Caramel Heaven',
+      'Duo Délice',
+      'Cake & Crumbs',
+      'Mini & Me',
+      'Sweetheart Pack',
     ];
 
     return Scaffold(
@@ -196,7 +196,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 20),
               const Text(
-                'Special For You',
+                'Special Packs For You',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -220,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       cakeNames[index],
                       cakeImages[index],
-                      '15',
+                       '\$50.99',
                       4.5,
                     ),
                     child: Card(
@@ -260,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 const SizedBox(height: 4),
                                 const Text(
-                                  '15',
+                                   '\$50.99',
                                   style: TextStyle(
                                     color: Color(0xFFA08A6C),
                                   ),
