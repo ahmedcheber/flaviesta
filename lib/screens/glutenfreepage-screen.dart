@@ -11,7 +11,7 @@ class GlutenFreePage extends StatelessWidget {
     {
       'name': 'Coconut Heaven',
       'price': 30.50,
-      'image': 'images/gluten2.png',
+      'image': 'images/glutenn2.png',
       'rating': 4.6,
     },
     {

@@ -5,7 +5,8 @@ import 'cupcakespage-screen.dart';
 import 'glutenfreepage-screen.dart';
 import 'cakedetailspage-screen.dart';
 import 'categorypage-screen.dart';
-
+import 'basketpage-screen.dart';
+import 'profilepage-screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         context,
         MaterialPageRoute(builder: (context) => WeddingPage()),
       );
-    } else if (category == 'Traditional') {
+    } else if (category == 'Cupcakes') {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => TraditionalPage()),
@@ -65,9 +66,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  // Fonction pour naviguer vers la page CustomizeCakeScreen
- 
 
   Widget _buildCategoryChip(BuildContext context, String category) {
     return GestureDetector(
@@ -107,17 +105,19 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
-        title: const Text(
-          'Find and Get Your Best Cake',
-          style: TextStyle(
-            fontFamily: 'BridgetLily',
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 114, 88, 65),
-          ),
-        ),
-      ),
+  backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
+  automaticallyImplyLeading: false, // <- This removes the back button
+  title: const Text(
+    'Find and Get Your Best Cake',
+    style: TextStyle(
+      fontFamily: 'BridgetLily',
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Color.fromARGB(255, 114, 88, 65),
+    ),
+  ),
+),
+
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   _buildCategoryChip(context, 'Anniversary'),
                   _buildCategoryChip(context, 'Wedding'),
-                  _buildCategoryChip(context, 'Traditional'),
+                  _buildCategoryChip(context, 'Cupcakes'),
                   _buildCategoryChip(context, 'Gluten-Free'),
                 ],
               ),
@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       cakeNames[index],
                       cakeImages[index],
-                       '\$50.99',
+                      '\$50.99',
                       4.5,
                     ),
                     child: Card(
@@ -219,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 const SizedBox(height: 4),
                                 const Text(
-                                   '\$50.99',
+                                  '\$50.99',
                                   style: TextStyle(
                                     color: Color.fromARGB(255, 160, 138, 108),
                                   ),
@@ -254,8 +254,21 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
-            // Navigate to the appropriate page based on the index
           });
+
+          if (index == 0) {
+            // Already on Home, do nothing or maybe scroll to top
+          } else if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BasketPage()),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
         },
         backgroundColor: const Color.fromRGBO(251, 221, 210, 1),
         selectedItemColor: const Color.fromARGB(255, 114, 88, 65),
@@ -265,10 +278,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.cake),
-            label: 'Customize',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_basket),
