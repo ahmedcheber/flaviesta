@@ -7,6 +7,7 @@ import 'cakedetailspage-screen.dart';
 import 'categorypage-screen.dart';
 import 'basketpage-screen.dart';
 import 'profilepage-screen.dart';
+import 'customizecake-screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -263,13 +264,18 @@ class _HomePageState extends State<HomePage> {
           });
 
           if (index == 0) {
-            // Already on Home, do nothing or maybe scroll to top
+            // Stay on Home
           } else if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CustomizeCakePage()),
+            );
+          } else if (index == 2) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => BasketPage()),
             );
-          } else if (index == 2) {
+          } else if (index == 3) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ProfilePage()),
@@ -284,6 +290,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.cake),
+            label: 'Customize',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_basket),

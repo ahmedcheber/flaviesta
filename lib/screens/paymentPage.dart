@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'homepage-screen.dart'; // Import the HomePage
@@ -17,7 +18,7 @@ class _PaymentPageState extends State<PaymentPage> {
   final _cardNumberController = TextEditingController();
   final _expiryDateController = TextEditingController();
   final _cvvController = TextEditingController();
-  final _deliveryDateController = TextEditingController(); // New controller
+  final _deliveryDateController = TextEditingController();
 
   final user = FirebaseAuth.instance.currentUser;
 
@@ -31,7 +32,7 @@ class _PaymentPageState extends State<PaymentPage> {
           'totalPrice': widget.itemData['totalPrice'],
           'orderTime': Timestamp.now(),
           'status': 'Processing',
-          'deliveryDate': _deliveryDateController.text.trim(), // Add delivery date
+          'deliveryDate': _deliveryDateController.text.trim(),
           'paymentInfo': {
             'cardNumber': _cardNumberController.text.trim(),
             'expiry': _expiryDateController.text.trim(),
@@ -112,8 +113,13 @@ class _PaymentPageState extends State<PaymentPage> {
                   fillColor: Colors.white,
                 ),
                 keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(19),
+                  CardNumberInputFormatter(),
+                ],
                 validator: (value) {
-                  if (value == null || value.isEmpty || value.length < 16) {
+                  if (value == null || value.isEmpty || value.replaceAll(' ', '').length < 16) {
                     return 'Enter a valid card number.';
                   }
                   return null;
@@ -130,6 +136,11 @@ class _PaymentPageState extends State<PaymentPage> {
                   fillColor: Colors.white,
                 ),
                 keyboardType: TextInputType.datetime,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(5),
+                  ExpiryDateInputFormatter(),
+                ],
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Enter expiry date.';
@@ -166,6 +177,11 @@ class _PaymentPageState extends State<PaymentPage> {
                   fillColor: Colors.white,
                 ),
                 keyboardType: TextInputType.datetime,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(8),
+                  ExpiryDateInputFormatter(),
+                ],
                 validator: (value) {
                   if (value == null || !RegExp(r'^\d{2}/\d{2}/\d{2}$').hasMatch(value)) {
                     return 'Enter date in dd/mm/yy format.';
@@ -190,6 +206,48 @@ class _PaymentPageState extends State<PaymentPage> {
           ),
         ),
       ),
+    );
+  }
+}
+
+// ➕ Formatteur pour carte bancaire
+class CardNumberInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    final digitsOnly = newValue.text.replaceAll(' ', '');
+    final buffer = StringBuffer();
+
+    for (int i = 0; i < digitsOnly.length; i++) {
+      buffer.write(digitsOnly[i]);
+      if ((i + 1) % 4 == 0 && i + 1 != digitsOnly.length) {
+        buffer.write(' ');
+      }
+    }
+
+    return TextEditingValue(
+      text: buffer.toString(),
+      selection: TextSelection.collapsed(offset: buffer.length),
+    );
+  }
+}
+
+// ➕ Formatteur pour date (MM/YY ou DD/MM/YY)
+class ExpiryDateInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    var text = newValue.text.replaceAll('/', '');
+    final buffer = StringBuffer();
+
+    for (int i = 0; i < text.length; i++) {
+      buffer.write(text[i]);
+      if ((i == 1 || i == 3) && i + 1 != text.length) {
+        buffer.write('/');
+      }
+    }
+
+    return TextEditingValue(
+      text: buffer.toString(),
+      selection: TextSelection.collapsed(offset: buffer.length),
     );
   }
 }
